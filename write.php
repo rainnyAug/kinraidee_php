@@ -38,6 +38,44 @@ session_start();
     <section style="background: url('https://static.vecteezy.com/system/resources/thumbnails/002/372/705/small/abstract-green-geometric-banner-background-free-vector.jpg'); height: 12rem;">
         <center><h1>Write</h1></center>
     </section>
+    
+    <!--
+    <form action="insert.php" method="post">
+    ชื่อผู้ใช้งาน : <input type="text" name="username">  <br>
+    รหัสผ่าน : <input type="password" name="password">    <br>
+    ชื่อ-นามสกุล : <input type="text" name="uname"> <br>
+    <input type="submit" value="บันทึกข้อมูล">
+    </form>
+    -->
+    <div class="container mt-4">
+        <form method="post">
+            <div class="row mb-3 justify-content-center">
+                <div class="col-lg-4 col-md-4">
+                    <label for="exampleFormControlInput1" class="form-label">หัวเรื่อง</label>
+                        <input type="text" id="topic" class="form-control">
+                </div>
+                <div class="col-lg-4 col-md-4">
+                    <label for="exampleFormControlInput1" class="form-label">ชื่อร้าน</label>
+                    <input type="text" id="r_name" class="form-control">
+                </div>
+            </div>
+            <div class="row mb-3 justify-content-center">
+                <div class="col-lg-8 col-md-8">
+                    <label for="exampleFormControlInput1" class="form-label">ประเภท</label>
+                    <div class="col-lg-6 col-md-6" style="padding-right: 12px">
+                        <input type="text" id="category" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-3 justify-content-center">
+                <div class="col-lg-8 col-md-8">
+                    <div class="col-lg-6 col-md-6">
+                        <button type="button submit" class="btn btn-success btn-block signup">Post</button>
+                    </div>
+                </div>
+            </div>
 
+        </form>
+    </div>
 </body>
 </html>
