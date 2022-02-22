@@ -1,14 +1,15 @@
 <!--loginแล้ว-->
 <?php
     require('connectdb.php');
-    $sql = "SELECT `username` FROM `register` WHERE 1"; //คำสั่งเก็บตรงนี้
-    $query_sql = $connectdb->query($sql); //คำสั่งทำงานตรงนี้
+    $sql = "SELECT `username` FROM `register` WHERE 1";
+    $query_sql = $connectdb->query($sql);
 ?>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <div class="col-xs-6">
-                <a class="navbar-brand" href="Home.php">KinRaiDee</a>
+                
+                <a class="navbar-brand" href="Home.php"><img src="pic/kinraidee_icon.png" class="img-fluid" alt="..." width="60" height="60">KinRaiDee</a>
             </div>
             
             <div class="col-xs-6">
@@ -18,21 +19,22 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                     <li class="nav-item" style="padding: 8px;">
-                    <a class="nav-link active" aria-current="page" href="home.php">Home</a>
+                    <a class="nav-link active" aria-current="page" href="home.php">หน้าแรก</a>
                     </li>
-                    <li class="nav-item" style="padding: 8px; padding-right: 16px;">
-                    <a class="nav-link" href="#">Features</a>
+                    <li class="nav-item" style="padding: 8px;">
+                    <a class="nav-link" href="kongwan.php">ของหวาน</a>
+                    </li>
+                    <li class="nav-item" style="padding: 8px;">
+                    <a class="nav-link" href="kongkao.php">ของคาว</a>
+                    </li>
+                    <li class="nav-item" style="padding: 8px;">
+                    <a class="nav-link" href="drink.php">เครื่องดื่ม</a>
+                    </li>
+                    <li class="nav-item" style="padding: 8px;">
+                    <a class="nav-link" href="oenoen.php">อื่น ๆ</a>
                     </li>
                     </ul>
-                    <div class="btn-group dropstart">
-                    <button type="button" class="btn btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                        <?php echo $_SESSION['username']; ?>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="my_writing.php">My writing</a></li>
-                        <li><a class="dropdown-item" href="logout.php">ออกจากระบบ</a></li>
-                    </ul>
-                    </div>
+                    
                 </div>
             </div>
         </div>

@@ -1,3 +1,6 @@
+<?php
+session_start();
+    ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +22,11 @@
             font-family: 'Prompt', sans-serif;
             color: black;
         }
+        .topic{
+            text-align: center;
+            padding: 210px;
+            color: white;
+        }
     </style>
 
 </head>
@@ -26,44 +34,45 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <div class="col-xs-6">
-                <a class="navbar-brand" href="index.php">KinRaiDee</a>
-            </div>
-            
-            <div class="col-xs-6">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                 <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav">
-                    <li class="nav-item" style="padding: 8px;">
-                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
-                    </li>
-                    <li class="nav-item" style="padding: 8px;">
-                    <a class="nav-link" href="#">Features</a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="login.php"><button type="button" class="btn btn-primary">เข้าสู่ระบบ</button></a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="signup.php"><button type="button" class="btn btn-secondary">ลงทะเบียน</button></a>   
-                    </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <?php require('navbar.php')?>
     
-    <section style="background: url('https://static.vecteezy.com/system/resources/thumbnails/002/372/705/small/abstract-green-geometric-banner-background-free-vector.jpg'); height: 30rem;">
+    <section style="background: url('pic/home.jpg'); height: 30rem;">
         <div class="col align-self-center">
-            <center><h1>หน้าแรก</h1></center>
+            <h1 class="topic">หน้าแรก</h1>
         </div>
     </section>
     
-    <div class="container mt-3">
-        
+    <?php
+    require('connectdb.php');
+    $sql = "SELECT `id`, `topic`, `r_name`, `category`, `score`, `writer`, `writer_id`, `des`, `pic` FROM `writing` WHERE 1";
+    $query_sql = $connectdb->query($sql);
+    ?>
+
+    <div class="container mt-4 mb-4">
+        <div class="row">
+            <?php while($row = mysqli_fetch_array($query_sql)){ ?>
+                <div class="col-lg-4 d-flex align-items-stretch mt-3 mb-3">
+                    <div class="card">
+                        <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-5 col-md-4" style="margin: 12px;">
+                                <a href="arnbotkwarm.php?id=<?php echo $row ['id'] ?>"><img src="<?php echo $row['pic']; ?>" class="img-fluid rounded w-100 d-block" alt="..."></a>
+                            </div>
+                            <div class="col-lg-6 mt-4">
+                                <h5 class="card-title"><?php echo $row['topic']; ?></h5>
+                                <p class="card-text" style="margin: 0px 0px 4px"><?php echo $row['r_name']; ?></p>
+                                <span class="badge bg-danger" style="margin: 0px 0px 10px"><?php echo $row['category']; ?></span> <br>
+                                <!---<a href="#" class="btn btn-primary">Go somewhere</a>--->
+                            </div>
+                        </div>
+                        </div>
+                        
+                        
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
     </div>
     
 </body>

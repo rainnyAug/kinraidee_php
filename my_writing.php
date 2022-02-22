@@ -24,7 +24,7 @@ session_start();
     
     <style>
         body{
-            background-color:white ;
+            background-color:rgb(238, 238, 238) ;
             font-family: 'Prompt', sans-serif;
             color: black;
         }
@@ -32,13 +32,21 @@ session_start();
             font-size: 18px;
             text-align: center;
         }
+        .topic{
+            text-align: center;
+            padding: 70px;
+            color: white;
+        }
+        .white{
+            background-color:white ;
+        }
     </style>
 </head>
 <body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     
-    <?php require('navbar2.php')?>
+    <?php require('navbar.php')?>
     
     <?php
     require('connectdb.php');
@@ -52,42 +60,58 @@ session_start();
     $query_sql = $connectdb->query($sql);
     ?>
 
-    <section style="background: url('https://static.vecteezy.com/system/resources/thumbnails/002/372/705/small/abstract-green-geometric-banner-background-free-vector.jpg'); height: 12rem;">
-        <center><h1>My Writing</h1></center>
+    <section style="background: url('pic/small.jpg'); height: 12rem;">
+        <h1 class="topic">My Writing</h1>
     </section>
 
     <div class="container mt-4">
         <div class="row mt-4">
+
             <div class="col-lg-3 col-md-3" style="padding-right: 24px; padding-left: 0px;">
+            <div class="card">
+                <div class="card-body">
                 <img src="https://i.pinimg.com/originals/d2/28/71/d22871b6c9e94e1d973663bbe1d0b276.jpg" class="img-fluid rounded mx-auto d-block" alt="...">
                 <div class="profile mt-3 mb-2">
                     <font size="6px"><b><?php echo $_SESSION['username']; ?></b></font> <br>
                     <?php echo $_SESSION['email']; ?>
                 </div>
                 <center><a href="write.php"><button type="button" class="btn btn-warning">+ เพิ่มงานเขียน</button></a></center>
+                </div>
+            
+            </div>
+                
             </div>
             <div class="col-lg-9 col-md-9">
-                <table border="1" class="table table-hover">    
-                    <thead class="table-light">
-                        <td>หัวเรื่อง</td>
-                        <td>ชื่อร้าน</td>
-                        <td>ประเภท</td>
-                        <td>คะแนน</td>
-                        <td>จัดการ</td>
-                    </thead>    
-                    <?php while($row = mysqli_fetch_array($query_sql)){ ?>
-                    <tr>
-                        <td><?php echo $row['topic']; ?></td>
-                        <td><?php echo $row['r_name']; ?></td>
-                        <td><?php echo $row['category']; ?></td>
-                        <td><?php echo $row['score']; ?></td>
-                        <td>
-                            <a href=""><button type="button" class="btn btn-danger delete_data" id="<?php echo $row['id']; ?>">ลบ</button></a>
-                            <a href="***.php?id=<?php echo $row['id']; ?>"><button type="button" class="btn btn-secondary">แก้ไข</button></a>
-                        </td>
-                    </tr>
-                    <?php } ?>
-                </table>
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table text-center">    
+                                <thead style="font-size: 19px;">
+                                    <td>หัวเรื่อง</td>
+                                    <td>ชื่อร้าน</td>
+                                    <td>ประเภท</td>
+                                    <td>คะแนน</td>
+                                    <td>จัดการ</td>
+                                </thead>    
+                                <?php while($row = mysqli_fetch_array($query_sql)){ ?>
+                                <tr>
+                                    <td><?php echo $row['topic']; ?></td> 
+                                    <td><?php echo $row['r_name']; ?></td>
+                                    <td><?php echo $row['category']; ?></td>
+                                    <td><?php echo $row['score']; ?></td>
+                                    <td>
+                                        <a href=""><button type="button" class="btn btn-danger delete_data" id="<?php echo $row['id']; ?>">ลบ</button></a>
+                                        <a href="edit_write.php?id=<?php echo $row['id']; ?>"  class="btn btn-secondary">แก้ไข</a> 
+                                        <a href="arnbotkwarm.php?id=<?php echo $row['id']; ?>" class="btn btn-primary">ดู</a>
+                                    </td>
+                                </tr>
+                                <?php } ?>
+                            </table>
+                        </div>
+                    
+                    </div>
+                </div>
+                
             </div>
         </div>
         

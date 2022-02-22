@@ -16,9 +16,14 @@
     
     <style>
         body{
-            background-color:white ;
+            background-color:rgb(238, 238, 238) ;
             font-family: 'Prompt', sans-serif;
             color: black;
+        }
+        .topic{
+            text-align: center;
+            padding: 90px;
+            color: white;
         }
     </style>
 </head>
@@ -29,7 +34,7 @@
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
             <div class="col-xs-6">
-                <a class="navbar-brand" href="index.php">KinRaiDee</a>
+                <a class="navbar-brand" href="index.php"><img src="pic/kinraidee_icon.png" class="img-fluid" alt="..." width="60" height="60">KinRaiDee</a>
             </div>
             
             <div class="col-xs-6">
@@ -39,22 +44,30 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                     <li class="nav-item" style="padding: 8px;">
-                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link active" aria-current="page" href="index.php">หน้าแรก</a>
+                    </li>
                     </li>
                     <li class="nav-item" style="padding: 8px;">
-                    <a class="nav-link" href="#">Features</a>
+                    <a class="nav-link" href="kongwan.php">ของหวาน</a>
                     </li>
-                    <li class="nav-item">
-                    <a class="nav-link" href="signup.php"><button type="button" class="btn btn-secondary">ลงทะเบียน</button></a>   
+                    <li class="nav-item" style="padding: 8px;">
+                    <a class="nav-link" href="kongkao.php">ของคาว</a>
                     </li>
+                    <li class="nav-item" style="padding: 8px;">
+                    <a class="nav-link" href="drink.php">เครื่องดื่ม</a>
+                    </li>
+                    <li class="nav-item" style="padding: 8px;">
+                    <a class="nav-link" href="oenoen.php">อื่น ๆ</a>
+                    </li>
+                 
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
     
-    <section style="background: url('https://static.vecteezy.com/system/resources/thumbnails/002/372/705/small/abstract-green-geometric-banner-background-free-vector.jpg'); height: 15rem;">
-        <center><h1>เข้าสู่ระบบ</h1></center>
+    <section style="background: url('pic/med.jpg'); height: 15rem;">
+        <h1 class="topic">เข้าสู่ระบบ</h1>
     </section>
     
     <div class="container mt-4">
@@ -84,9 +97,10 @@ if(isset($_POST['email']) && isset($_POST['pword'])){
             if($num>0){
             $auth = $querydata->fetch_assoc();
             $_SESSION['username'] = $auth['username'];
+            $_SESSION['uname'] = $auth['uname'];
             $_SESSION['id'] = $auth['id'];
             $_SESSION['email'] = $auth['email'];
-            header("Location: home.php"); 
+            header("Location: index.php"); 
 
             }else{
                 echo "<script>Swal.fire({
@@ -109,7 +123,7 @@ if(isset($_POST['email']) && isset($_POST['pword'])){
 
 ?>
         <form method="post">
-            <div class="row justify-content-center">
+            <div class="row justify-content-center mt-4">
                 <div class="col-lg-4 col-md-4">
                     <label for="exampleFormControlInput1" class="form-label">Email address</label>
                     <input type="email" name="email" class="form-control" placeholder="name@example.com">
@@ -119,7 +133,8 @@ if(isset($_POST['email']) && isset($_POST['pword'])){
                     <input type="password" name="pword" class="form-control" id="exampleFormControlInput1">
                 </div>
                 <div class="col-lg-8 col-md-8 mt-3">
-                <button class="w-100 btn btn-lg btn-primary" type="submit">เข้าสู่ระบบ</button>
+                <button class="w-100 btn btn-primary" type="submit">เข้าสู่ระบบ</button>
+                <a href="signup.php" class="mt-2 btn btn-secondary w-100">ลงทะเบียน</a>
                 </div>
             </div>
         </form>

@@ -16,9 +16,14 @@
     
     <style>
         body{
-            background-color:white ;
+            background-color:rgb(238, 238, 238) ;
             font-family: 'Prompt', sans-serif;
             color: black;
+        }
+        .topic{
+            text-align: center;
+            padding: 90px;
+            color: white;
         }
     </style>
 
@@ -29,8 +34,8 @@
 
     <?php require('navbar.php')?>
 
-    <section style="background: url('https://static.vecteezy.com/system/resources/thumbnails/002/372/705/small/abstract-green-geometric-banner-background-free-vector.jpg'); height: 15rem;">
-        <center><h1>ลงทะเบียน</h1></center>
+    <section style="background: url('pic/med.jpg'); height: 15rem;">
+        <h1 class="topic">ลงทะเบียน</h1>
     </section>
     
     <div class="container mt-4">
@@ -42,7 +47,7 @@
                 </div>
                 <div class="col-lg-4 col-md-4">
                     <label for="exampleFormControlInput1" class="form-label">Username</label>
-                    <input type="username" id="username" class="form-control" required placeholder="@Exmapleusername">
+                    <input type="username" id="username" class="form-control" required placeholder="Exampleusername">
                 </div>
             </div>
             <div class="row mb-3 justify-content-center">

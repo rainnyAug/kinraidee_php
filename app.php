@@ -13,6 +13,45 @@ if(isset($_POST['program'])){
         }else{
             echo "notok";
         }}
+
+    if($program == "write"){
+        $topic = $_POST['topic'];
+        $r_name = $_POST['r_name'];
+        $score = $_POST['score'];
+        $writer = $_POST['writer'];
+        $category = $_POST['category'];
+        $writer_id = $_POST['writer_id'];
+        $des = $_POST['des'];
+        $pic = $_POST['pic'];
+
+        $sql = "INSERT INTO `writing`(`id`, `topic`, `r_name`, `category`, `score`, `writer`, `writer_id`, `des`, `pic`) VALUES ('[value-1]','$topic','$r_name','$category','$score','$writer','$writer_id','$des','$pic')";
+        $query_sql = $connectdb->query($sql);
+        if($query_sql){
+            echo "ok";
+        }
+        else{
+            echo "notok"; //ถ้าใช้ไม่ได้
+        }
+    }
+
+    if($program == "edit_write"){
+        $id = $_POST['id'];
+        $topic = $_POST['topic'];
+        $r_name = $_POST['r_name'];
+        $score = $_POST['score'];
+        $category = $_POST['category'];
+        $des = $_POST['des'];
+        $pic = $_POST['pic'];
+
+        $sql = "UPDATE `writing` SET `topic`='$topic',`r_name`='$r_name',`category`='$category',`score`='$score',`des`='$des',`pic`='$pic' WHERE id = '$id'";
+        $query_sql = $connectdb->query($sql);
+        if($query_sql){
+            echo "ok";
+        }
+        else{
+            echo "notok"; //ถ้าใช้ไม่ได้
+        }
+    }
     if($program == "signup"){
 
         $username = $_POST['username'];
