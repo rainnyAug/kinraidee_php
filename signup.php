@@ -39,42 +39,43 @@
     </section>
     
     <div class="container mt-4">
-        <form method="post">
-            <div class="row mb-3 justify-content-center">
-                <div class="col-lg-4 col-md-4">
-                    <label for="exampleFormControlInput1" class="form-label">ชื่อ-นามสกุล</label>
-                    <input type="text" id="uname" class="form-control" required placeholder="สมพร โปรดนอนเถอะ">
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <label for="exampleFormControlInput1" class="form-label">Username</label>
-                    <input type="username" id="username" class="form-control" required placeholder="Exampleusername">
-                </div>
-            </div>
-            <div class="row mb-3 justify-content-center">
-                <div class="col-lg-8 col-md-8">
-                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <div class="col-lg-6 col-md-6" style="padding-right: 12px">
-                        <input type="email" id="email" class="form-control" required placeholder="name@example.com">
+        <div class="row mb-3 justify-content-center">
+            <div class="col-lg-8">
+                <div class="card">
+                    <div class="card-body">
+                    <form method="post">
+                        <div class="row mb-3 justify-content-center">
+                        <div class="col-lg-6 col-md-6 mt-2">
+                            <label for="exampleFormControlInput1" class="form-label">ชื่อ-นามสกุล</label>
+                            <input type="text" id="uname" class="form-control" required placeholder="สมพร โปรดนอนเถอะ">
+                        </div>
+                        <div class="col-lg-6 col-md-6 mt-2">
+                            <label for="exampleFormControlInput1" class="form-label">Username</label>
+                            <input type="username" id="username" class="form-control" required placeholder="Exampleusername">
+                        </div>
+                   
+                        <div class="col-lg-6 col-md-6 mt-2">
+                            <label for="exampleFormControlInput1" class="form-label">Email address</label>
+                                <input type="email" id="email" class="form-control" required placeholder="name@example.com">
+                        </div>
+                        <div class="col-lg-6 col-md-6 mt-2">
+                            <label for="exampleFormControlInput1" class="form-label">Password</label>
+                                <input type="password" id="password" class="form-control" required>
+                            </div>
+                        </div>
+    
+                    <div class="row mb-3 justify-content-center">
+                        <div class="col-lg-12 col-md-12">
+                                <button type="button" class="col-12 btn btn-success btn-block signup">สมัครสมาชิก</button>
+                            </div>
+                
                     </div>
-                </div>
-            </div>
-            <div class="row mb-3 justify-content-center">
-                <div class="col-lg-8 col-md-8">
-                    <label for="exampleFormControlInput1" class="form-label">Password</label>
-                    <div class="col-lg-6 col-md-6" style="padding-right: 12px">
-                        <input type="password" id="password" class="form-control" required>
-                    </div>
-                </div>
-            </div>
-            <div class="row mb-3 justify-content-center">
-                <div class="col-lg-8 col-md-8">
-                    <div class="col-lg-6 col-md-6">
-                        <button type="button" class="btn btn-success btn-block signup">สมัครสมาชิก</button>
-                    </div>
-                </div>
-            </div>
 
-        </form>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        
 
     </div><script
   src="https://code.jquery.com/jquery-3.6.0.js"

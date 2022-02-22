@@ -122,22 +122,31 @@ if(isset($_POST['email']) && isset($_POST['pword'])){
 }
 
 ?>
-        <form method="post">
-            <div class="row justify-content-center mt-4">
-                <div class="col-lg-4 col-md-4">
-                    <label for="exampleFormControlInput1" class="form-label">Email address</label>
-                    <input type="email" name="email" class="form-control" placeholder="name@example.com">
+    <div class="row justify-content-center mt-4">
+        <div class="col-lg-5">
+                <div class="card">
+                    <div class="card-body">
+                    <form method="post">
+                    
+                            <div class="col-lg-12 col-md-4 mt-2">
+                                <label for="email" class="form-label">Email address <small>ที่อยู่อีเมล</small></label>
+                                <input type="email" name="email" class="form-control" placeholder="name@example.com">
+                            </div>
+                            <div class="col-lg-12 col-md-4 mt-2">
+                                <label for="pword" class="form-label">Password <small>รหัสผ่าน</small></label>
+                                <input type="password" name="pword" class="form-control">
+                            </div>
+                            <div class="col-lg-12 col-md-12 mt-3">
+                            <button class="w-100 btn btn-primary" type="submit">เข้าสู่ระบบ</button>
+                            <a href="signup.php" class="mt-2 btn btn-secondary w-100">ลงทะเบียน</a>
+                            </div>
+                        </div>
+                    </form>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-md-4">
-                    <label for="exampleFormControlInput1" class="form-label">Password</label>
-                    <input type="password" name="pword" class="form-control" id="exampleFormControlInput1">
-                </div>
-                <div class="col-lg-8 col-md-8 mt-3">
-                <button class="w-100 btn btn-primary" type="submit">เข้าสู่ระบบ</button>
-                <a href="signup.php" class="mt-2 btn btn-secondary w-100">ลงทะเบียน</a>
-                </div>
-            </div>
-        </form>
+                
+        </div>
+        
 
     </div>
 </body>

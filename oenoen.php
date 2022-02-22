@@ -1,7 +1,11 @@
 <?php
 session_start();
-
     ?>
+<?php
+    require('connectdb.php');
+    $sql = "SELECT `id`, `topic`, `r_name`, `category`, `score`, `writer`, `writer_id`, `des`, `pic` FROM `writing` WHERE `category` = 'อื่น ๆ'";
+    $query_sql = $connectdb->query($sql);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,57 +21,54 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
 
-    <style>
-        body{
-            background-color:rgb(245, 245, 245) ;
-            font-family: 'Prompt', sans-serif;
-            color: black;
-        }
-        .topic{
-            text-align: center;
-            padding: 210px;
-            color: white;
-        }
-    </style>
-</head>
-<body>
+    <?php include ('index_style.php') ?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    
+
+</head>
+<body>
+    
 
     <?php require('navbar.php')?>
     
-    <section style="background: url('pic/home.jpg'); height: 30rem;">
-        <div class="col align-self-center">
-            <h1 class="topic">อื่น ๆ</h1>
-        </div>
-    </section>
-
-    <?php
-    require('connectdb.php');
-    $sql = "SELECT `id`, `topic`, `r_name`, `category`, `score`, `writer`, `writer_id`, `des`, 'pic' FROM `writing` WHERE `category` = 'อื่น ๆ'";
-    $query_sql = $connectdb->query($sql);
-    ?>
-
-    <div class="container mt-4 mb-4">
+    <div class="container-fluid mt-4 mb-4">
         <div class="row">
-            <?php while($row = mysqli_fetch_array($query_sql)){ ?>
-                <div class="col-lg-4 mt-3 mb-3">
-                    <div class="card">
-                        <div class="row">
-                            <div class="col-lg-5 col-md-4" style="margin: 12px;">
-                                <a href="arnbotkwarm.php?id=<?php echo $row ['id'] ?>"><img src="<?php echo $row['pic']; ?>" class="img-fluid rounded w-100 d-block" alt="..."></a>
-                            </div>
-                            <div class="col-lg-6 mt-4">
-                                <h5 class="card-title"><?php echo $row['topic']; ?></h5>
-                                <p class="card-text" style="margin: 0px 0px 4px"><?php echo $row['r_name']; ?></p>
-                                <span class="badge bg-danger" style="margin: 0px 0px 10px"><?php echo $row['category']; ?></span> <br>
+            <?php include('slide.php') ?>
+            
+            <div class="col-lg-6 overflow-auto" style="max-height: 980px">
+                <div class="row">
+                <?php while($row = mysqli_fetch_array($query_sql)){ ?>
+
+                <div class="col-lg-6 d-flex align-items-stretch mb-3">
+
+                    <div class="card" style="border-radius: 15px;">
+                    
+                        <div class="card-body">
+                            <a href="arnbotkwarm.php?id=<?php echo $row ['id'] ?>"><img src="<?php echo $row['pic']; ?>" class="img-fluid w-100 d-block" style="border-radius: 15px;" alt="..."></a>
+                            
+                            <h5 class="card-title mt-3"><b><?php echo $row['topic']; ?></b></h5>
+                            <p class="card-text"> <?php echo $row['r_name']; ?></p>
+
+                            <div class="btn-group col-12 mt-3" role="group" aria-label="Basic outlined example">
+                                <a href="arnbotkwarm.php?id=<?php echo $row ['id'] ?>" class="btn btn-light btn-sm" style="color: #69809a;border-color: transparent;background: #e7ebef;border-top-left-radius:8px;border-bottom-left-radius: 8px;border-top-right-radius: 0px!importnat;border-bottom-right-radius: 0px!important;"><?php echo $row ['category'] ?></a>
+                                <a href="arnbotkwarm.php?id=<?php echo $row ['id'] ?>" class="btn btn-light btn-sm" style="color: #69809a;border-color: #e7ebef;border-top-right-radius:8px;border-bottom-right-radius: 8px;border-top-left-radius: 0px!importnat;border-bottom-left-radius: 0px!important;"><?php echo $row ['score'] ?> / 10</a>
                             </div>
                         </div>
                         
+                                          
+            
                     </div>
                 </div>
             <?php } ?>
+                </div>
+            
+            </div>
+    
+        
+            
         </div>
+    </div>
     </div>
 
 </body>

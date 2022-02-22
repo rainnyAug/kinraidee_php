@@ -64,7 +64,7 @@ session_start();
         <h1 class="topic">My Writing</h1>
     </section>
 
-    <div class="container mt-4">
+    <div class="container mt-4 mb-4">
         <div class="row mt-4">
 
             <div class="col-lg-3 col-md-3" style="padding-right: 24px; padding-left: 0px;">
