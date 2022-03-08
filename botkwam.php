@@ -89,7 +89,7 @@ session_start();
                             <img src="https://i.pinimg.com/originals/d2/28/71/d22871b6c9e94e1d973663bbe1d0b276.jpg" class="img-fluid rounded w-100 d-block" alt="...">
                         </div>
                         <div class="col-8 profile">
-                            <b>ผู้เขียนบทความ</b> <br>
+                            <b>ผู้เขียนรีวิว</b> <br>
                             <?php echo $_SESSION['username']; ?> <hr>
                         </div>
                     </div>
