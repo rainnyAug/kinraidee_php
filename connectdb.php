@@ -2,7 +2,7 @@
 $hostfordb = 'localhost';
 $usernamefordb = 'root';
 $passwordfordb = '';
-$dbnamefordb = 'signup';
+$dbnamefordb = 'kinraidee';
 
 date_default_timezone_set('Asia/Bangkok');
 $connectdb = mysqli_connect($hostfordb,$usernamefordb,$passwordfordb,$dbnamefordb);
